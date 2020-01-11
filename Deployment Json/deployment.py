@@ -1,14 +1,14 @@
 import json
 import os
 import requests 
-import json
 import subprocess
 
 def jsonRequestParsing():
 
 	global containerID,repoURL,targetIP,targetPswd,source,destination
 
-	with open('/home/mel/Desktop/software/python/jsonRequest.json', 'r') as f:
+	f =  open('/home/mel/Desktop/software/python/jsonRequest.json', 'r')
+	if f.mode == 'r':
 		distros_dict = json.load(f)
 
 	for distro in distros_dict:
@@ -72,16 +72,16 @@ def undeploy():
 		#if there isn't any containers running it is succesfull
 		print("##",a,"##")
 
-		if (len(a) <= 2) :
-			writeToJasonDeployed("success")
-			sendJsonFile()
-		else :
-			writeToJasonDeployed("fail")
-			sendJsonFile()
-	else :
+	#	if (len(a) <= 2) :
+	#		writeToJasonDeployed("success")
+	#		sendJsonFile()
+	#	else :
+	#		writeToJasonDeployed("fail")
+	#		sendJsonFile()
+	#else :
 		# There is no container that matches the containerID
-		writeToJasonDeployed("fail")
-		sendJsonFile()
+	#	writeToJasonDeployed("fail")
+	#	sendJsonFile()
 
 def deploy():
 	"""
@@ -106,7 +106,7 @@ def deploy():
 	print("\t\t\tRunning Container list:")
 	print(p)
 
-#	p= os.popen('echo %s|sudo -S %s' % (sudoPassword, deployCommand)).read()
+	p= os.popen('echo %s|sudo -S %s' % (sudoPassword, deployCommand)).read()
 	print("\t\t\t-------------------  \n\t\t\t------- 2 ---------  \n\t\t\t-------------------  \n")
 	print("\t\t\tCreating Container")
 	print(p)
@@ -116,6 +116,8 @@ def deploy():
 	print("\t\t\tRunning Container List:")
 	print(p)
 	a=None
+	
+	os.close()
 	a=os.popen('echo %s|sudo -S sudo docker ps -a | grep "Up" | cut -d " " -f 1' % (sudoPassword)).read()
 	print("\t\t\t-------------------  \n\t\t\t------- 4 ---------  \n\t\t\t-------------------  \n")
 	print("\t\tContainer ID of the Container Status is Up:")
@@ -125,13 +127,12 @@ def deploy():
 	containerID = a.split('\n')[0]
 
 	#change the condition
-	if (containerID != None) :
-		writeToJasonDeployed("success")
-		sendJsonFile()
-	else :
-		writeToJasonDeployed("fail")
-		sendJsonFile()
-
+	#if (containerID != None) :
+	#	writeToJasonDeployed("success")
+	#	sendJsonFile()
+	#else :
+	#	writeToJasonDeployed("fail")
+	#	sendJsonFile()
 
 def writeToJasonDeployed(info):
 	data = {}
