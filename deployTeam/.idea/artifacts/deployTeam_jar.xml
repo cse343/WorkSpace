@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="deployTeam:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/deployTeam_jar</output-path>
+    <root id="archive" name="deployTeam.jar">
+      <element id="module-output" name="deployTeam" />
+      <element id="library" level="project" name="jre1.8" />
+    </root>
+  </artifact>
+</component>
