@@ -103,3 +103,7 @@ Unique_operator = len(b)
 Halstead_Program_Length = (Unique_identifier*math.log(Unique_identifier,2)) 
 + (Unique_operator*math.log(Unique_operator,2))
 print "Halstead's Length : ", Halstead_Program_Length
+
+Halstead_Bug_Prediction = (ide + op)*math.log((Unique_operator+Unique_identifier),2) / 3000
+
+print "Halstead's Bug Prediction : ", Halstead_Bug_Prediction
