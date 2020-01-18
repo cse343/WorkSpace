@@ -1,0 +1,8 @@
+{ 
+	"deployment":"deploy", 
+	"targetPswd":"gtu2017A",  
+	"destination":"3",
+	"orijin":"7",
+	"repoURL":"https://github.com/osmancetin10/deploy.git",
+	"projectName":"project99"
+}
