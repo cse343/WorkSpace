@@ -2,7 +2,7 @@
 	"deployment":"undeploy", 
 	"targetPswd":"gtu2017A",  
 	"destination":"3",
-	"orijin":"2",
+	"origin":"2",
 	"repoURL":"https://github.com/osmancetin10/deploy.git",
 	"projectName":"project99"
 }
